@@ -76,10 +76,9 @@
           <div class="back-sub">É neste sábado, 06/07/2025 às 9h da manhã (Teams) - Apenas para o 2º período - UNINASSAU ARACAJU</div>
 
           <div class="btn-row">
-            <!-- <a id="teamsBtn" class="btn-futuristic secondary" href="#" target="_blank" rel="noopener">💻 Abrir no Teams</a> -->
             <a id="teamsBtn" class="btn-futuristic secondary" href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTg1YzBkOTYtZjFhMS00YTgyLThmNDEtYTA3MWI2NWE4OTc5%40thread.v2/0?context=%7b%22Tid%22%3a%226c60811c-739e-4044-a1d3-8c56a8a50c87%22%2c%22Oid%22%3a%2240d18336-3eb3-46c5-9cdc-329403b83b09%22%7d" target="_blank" rel="noopener">💻 Abrir no Teams</a>
             <a id="gcalBtn" class="btn-futuristic" href="#" target="_blank" rel="noopener">📅 Google Calendar</a>
-            <!-- <button id="icsBtn" class="btn-futuristic">📂 Baixar .ics</button> -->
+            <button id="icsBtn" class="btn-futuristic">📂 Baixar .ics</button>
           </div>
 
           <div class="note">Dúvidas? Procure a coordenação do curso. Não compartilhe links sem autorização.</div>
@@ -104,13 +103,7 @@
     function toUtcStamp(d){const yyyy=d.getUTCFullYear(),mm=String(d.getUTCMonth()+1).padStart(2,'0'),dd=String(d.getUTCDate()).padStart(2,'0'),HH=String(d.getUTCHours()).padStart(2,'0'),MM=String(d.getUTCMinutes()).padStart(2,'0'),SS=String(d.getUTCSeconds()).padStart(2,'0'); return `${yyyy}${mm}${dd}T${HH}${MM}${SS}Z`;}
     document.getElementById('gcalBtn').href=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gTitle}&dates=${toUtcStamp(EVENT_START)}/${toUtcStamp(EVENT_END)}&details=${gDetails}&location=${gLocation}`;
 
-    // Teams link
-    const TEAMS_URL='#'; // TODO: colocar link real da reunião
-    const teamsBtn=document.getElementById('teamsBtn');
-    teamsBtn.href=TEAMS_URL;
-    teamsBtn.addEventListener('click',e=>{if(TEAMS_URL==='#'){e.preventDefault(); alert('Link do Teams não configurado.');}});
-
-    // ICS
+    // ===== ICS =====
     document.getElementById('icsBtn').addEventListener('click',()=>{
       const dtstamp=toUtcStamp(new Date()), dtstart=toUtcStamp(EVENT_START), dtend=toUtcStamp(EVENT_END), uid=`uninassau-ia-${Date.now()}@uninassau.aracaju`;
       const ics=[
